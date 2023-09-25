@@ -161,7 +161,7 @@ const strTpl = `
 			if !all { return err }
 			errors = append(errors, err)
 		}
-	{{ else if $r.GetIpv4WithPrefixlen }}
+	{{ else if $r.GetIpv6WithPrefixlen }}
 		if ip, _, err := net.ParseCIDR({{ accessor . }}); err != nil || ip.To6() == nil {
 			err := {{ err . "value must be a valid IPv6 address with prefixlen" }}
 			if !all { return err }
